@@ -19,4 +19,4 @@ alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | printf 'Public key copied.\n'"
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 
 # Open with Sublime Text
-alias subl='open -a "Sublime Text"''
+alias subl='open -a "Sublime Text"'
