@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# Example:
+# scurker:~/.dotfiles [master] $
+
+git_branch() {
+  local branchName=$(git symbolic-ref --quiet --short HEAD 2> /dev/null)
+  if [ "$branchName" ]; then
+    printf " [%s]" "$branchName"
+  else
+    return
+  fi
+}
+
+if tput setaf 1 &> /dev/null; then
+  bold=$(tput bold)
+  normal=$(tput sgr0)
+  underline=$(tput smul)
+  # Display all available colors with tput:
+  # for i in {0..255}; do tput setab $i; echo -n " $i "; done; tput setab 0; echo
+  black=$(tput setaf 0)
+  blue=$(tput setaf 33)
+  cyan=$(tput setaf 81)
+  green=$(tput setaf 35)
+  orange=$(tput setaf 208)
+  purple=$(tput setaf 129)
+  red=$(tput setaf 196)
+  white=$(tput setaf 255)
+  yellow=$(tput setaf 220)
+else
+  bold=""
+  normal=""
+  underline="\e[4m"
+  reset="\e[0m"
+  black="\e[30m"
+  blue="\e[34m"
+  cyan="\e[36m"
+  green="\e[32m"
+  orange="\e[33m"
+  purple="\e[35m"
+  red="\e[31m"
+  white="\e[37m"
+  yellow="\e[33m"
+fi
+
+# Show hostname when connected over SSH
+if [ -n "$SSH_TTY" ]; then
+  host="@\h"
+fi
+
+PS1="\[${blue}\]\u" # user
+PS1+="\[${cyan}\]${host}\[${normal}\]"
+PS1+="\[${white}\]:\W\[${normal}\]" # working directory
+PS1+="\[${green}${bold}\]\$(git_branch)\[${reset}${normal}\]" # git branch
+PS1+="\[${reset}\] $ " # reset
+
+export PS1

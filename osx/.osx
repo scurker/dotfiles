@@ -1,0 +1,10 @@
+#!/bin/bash
+
+OSX=$(test "`uname`" == "Darwin" && echo "x")
+
+if [[ OSX ]]; then
+
+  # Execute other osx-files
+  find . -name ".osx-*" -exec '{}' \;
+
+fi

@@ -1,2 +1,0 @@
-# dotfiles
-~/. my personal dotfiles

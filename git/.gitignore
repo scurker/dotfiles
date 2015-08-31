@@ -1,0 +1,10 @@
+# Folder View
+.DS Store
+Desktop.ini
+
+# Thumbnail Cache
+Thumbs.db
+
+# Sublime
+*.sublime-project
+*.sublime-workspace

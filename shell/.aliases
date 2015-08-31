@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Allow aliases to be with sudo
+alias sudo="sudo "
+
+# Easier Navigation
+alias ~="cd ~"
+alias ..="cd .."
+alias ...="cd ../.."
+
+# IP Addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
+
+# Copy public key
+alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | printf 'Public key copied.\n'"
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+# Open with Sublime Text
+alias subl='open -a "Sublime Text"''
