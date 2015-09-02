@@ -1,0 +1,9 @@
+#!/bin/bash
+
+datauri() {
+  local type=$(file -b --mime-type "$1")
+  if [[ $mimeType == text/* ]]; then
+    mimeType="${mimeType};charset=utf-8"
+  fi
+  printf "data:${mimeType};base64,$(base64 "$1" | tr -d '\n')" | pbcopy | printf "datauri copied to clipboard.\n"
+}

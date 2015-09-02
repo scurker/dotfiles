@@ -1,6 +1,41 @@
 [push]
+
   default = simple
 
 [user]
+
   name = Jason
   email = jason@scurker.com
+
+[alias]
+
+  # Undo the previous commit
+  undo-commit = reset --soft HEAD^
+
+  # View abbreviated SHA, description, and committer - highlighting the ticket number and branch
+  ls = "!git log --pretty=format:'%C(yellow)%h%Creset %s %C(cyan)(%cr)%Creset %Cgreen<%cn>%Creset' | GREP_COLOR='0;35' egrep -i --color=always '((\\w+/)?(acct|ops|cc|mx)-[0-9]+)|$' | less -R"
+
+  # Clean all files
+  ca = clean -d -f
+
+  # Amend the last commit
+  amend = commit -a --amend
+
+  # Show verbose remote info
+  remotes = remote -v
+
+  # List contributors with number of commits
+  contributors = shortlog --summary --numbered
+
+  # Clean remote branches that have already been merged
+  clean-branches = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+[color "status"]
+
+  added = green
+  changed = yellow
+  untracked = red
+
+[push]
+
+  default = current
