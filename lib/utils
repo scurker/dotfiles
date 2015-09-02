@@ -27,10 +27,10 @@ spinner() {
   local pid=$!
   local delay=0.2
   local spin='-\|/'
-  while kill -0 $pid 2>/devnull
+  while kill -0 $pid 2>/dev/null
   do
     i=$(((i+1)$4))
-    printf "\r[${spin:$i:1}]"
+    printf "\r [${spin:$i:1}]"
     sleep ${delay}
   done
   printf " ${SUCCESS_COLOR}✓${RESET}\n"
