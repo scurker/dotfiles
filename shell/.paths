@@ -12,7 +12,7 @@ declare -a dirs=(
 # Append directories to path
 for index in ${!dirs[*]}
 do
-  if [ -d ${dirs[$index]}]; then
+  if [ -d ${dirs[$index]} ]; then
     PATH="$PATH:${dirs[$index]}"
   fi
 done
@@ -20,15 +20,3 @@ done
 unset dirs
 
 export PATH
-
-# /Users/jwilson/.rvm/gems/ruby-2.2.1/bin
-# /Users/jwilson/.rvm/gems/ruby-2.2.1@global/bin
-# /Users/jwilson/.rvm/rubies/ruby-2.2.1/bin
-# /usr/local/bin
-# /usr/bin
-# /bin
-# /usr/sbin
-# /sbin
-# /opt/X11/bin
-# /usr/local/git/bin
-# /Users/jwilson/.rvm/bin

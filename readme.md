@@ -1,5 +1,21 @@
 # scurker's dotfiles
 
+# Install
+
+```bash
+$ bash -c "$(curl -fsSL raw.github.com/scurker/dotfiles/master/bin/dotfiles)"
+```
+
+This step will download and initiate the dotfiles repository in `~/.dotfiles` and may overwrite existing dotfiles in your home directory.
+
+# Updating
+
+Just run the dotfiles command:
+
+```bash
+$ dotfiles
+```
+
 # License
 
 [MIT](license) © Jason Wilson

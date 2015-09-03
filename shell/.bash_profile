@@ -15,10 +15,11 @@ load_dotfiles() {
 
   for index in ${!files[*]}
   do
-    if [[ -r ${files[$index]} ]];
-      echo ${files[$index]}
+    if [[ -r ${files[$index]} ]]; then
+      source ${files[$index]}
     fi
   done
+
 }
 
 load_dotfiles
