@@ -27,10 +27,10 @@ fi
 
 cd ${DOTFILES_DIR}
 
-source ./shell/.colors
+source ./shell/colors
 source ${HOME}/.dotfiles/lib/utils
 
-# homebrew
+# Install Homebrew
 if ! type_exists 'brew'; then
   printf "${STATUS_COLOR}Installing homebrew... ${CHECKMARK}${RESET}\n"
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -39,7 +39,7 @@ fi
 brew update > /dev/null &
 spinner "${STATUS_COLOR}Updating brew...${RESET}"
 
-# git
+# Install Git
 if ! type_exists 'git'; then
   printf "${STATUS_COLOR}Installing git... ${CHECKMARK}${RESET}\n"
   brew install git
@@ -61,18 +61,38 @@ printf "${STATUS_COLOR}Syncing dotfiles... ${CHECKMARK}${RESET}\n"
 git pull --rebase origin master > /dev/null 2>&1
 git log -1 --pretty=format:'%C(white dim)[master]%Creset %C(yellow)%h%Creset %s %C(cyan)(%cr)%Creset %Cgreen<%cn>%Creset'
 
-# npm
+# Install npm
 if ! type_exists 'npm'; then
   brew install node &
   spinner "${STATUS_COLOR}Installing node...${RESET}"
 fi
 
-ask "\nWarning: This step may overwrite your existing dotfiles!"
+# Link Files
+linkfiles() {
+
+  declare -a FILES=(
+    'shell/bashrc'
+    'shell/bash_profile'
+    'git/gitignore'
+    'git/gitconfig'
+  )
+
+  for file in "${FILES[@]}"
+  do
+    if [[ -r $file ]]; then
+      target="$HOME/.$(basename $file)"
+      ln -fs "$DOTFILES_DIR/$file" $target
+      printf "${normal}${gray}$DOTFILES_DIR/$file ${green}→ ${yellow}$target${normal}\n"
+    fi
+  done
+
+  printf "\n"
+
+}
+
+ask_confirmation "\nWarning: This step may overwrite your existing dotfiles! Continue?"
 if is_confirmed; then
-  ln "shell/.bashrc"        "${HOME}/.bashrc"
-  ln "shell/.bash_profile"  "${HOME}/.bash_profile"
-  ln "git/.gitignore"       "${HOME}/.gitignore"
-  ln "git/.gitconfig"       "${HOME}/.gitconfig"
+  linkfiles
   source ${HOME}/.bash_profile
 else
   printf "Skipped linking dotfiles\n"

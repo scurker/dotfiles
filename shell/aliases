@@ -20,7 +20,3 @@ alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 
 # Open with Sublime Text
 alias subl='open -a "Sublime Text"'
-
-# Include harmony flag with grunt & gulp commands
-alias grunt='grunt --harmony `which grunt`'
-alias gulp='node --harmony `which gulp`'

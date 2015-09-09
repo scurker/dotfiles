@@ -9,9 +9,9 @@ type_exists() {
 }
 
 # Ask for confirmation
-ask() {
-  printf "$1\n"
-  read -p "Continue? (y/n) " -n 1
+ask_confirmation() {
+  printf "$1"
+  read -p " (y/n) " -n 1
   printf "\n"
 }
 
