@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the icon size of Dock items
-defaults write com.apple.dock tilesize -int 48
+defaults write com.apple.dock tilesize -int 44
 
 # Minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool true
