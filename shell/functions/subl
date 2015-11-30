@@ -1,0 +1,17 @@
+#!/bin/bash
+
+subl() {
+  local sublime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+  if [ -z $@ ]; then
+    eval "$sublime" # If no arguments are passed in, just open sublime
+  else
+    # see if we can find a project file in the working directory
+    project=`ls *.sublime-project 2>/dev/null | head -1`
+
+    if [ -e "$project" ]; then
+      eval "$sublime $@ --project $project"
+    else
+      eval "$sublime $@"
+    fi
+  fi
+}

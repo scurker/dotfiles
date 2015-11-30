@@ -17,6 +17,3 @@ alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | printf 'Public key copied to clip
 
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
-
-# Open with Sublime Text
-alias subl='open -a "Sublime Text"'
