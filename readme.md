@@ -1,6 +1,6 @@
 # scurker's dotfiles
 
-![Preview](http://i.imgur.com/Ln5jXen.gif)
+![Preview](http://i.imgur.com/yA1VeAV.gif)
 
 # Install
 
