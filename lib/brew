@@ -1,0 +1,40 @@
+#!/bin/bash
+
+run_brew() {
+
+  # Install Homebrew
+  if ! type_exists 'brew'; then
+    printf "${STATUS_COLOR}Installing homebrew... ${CHECKMARK}${RESET}\n"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  else
+    brew update > /dev/null &
+    spinner "${STATUS_COLOR}Updating brew...${RESET}"
+  fi
+
+  local -a missing_formulas
+  local -a formulas=(
+    'ack'
+    'ffmpeg'
+    'git'
+    'node'
+    'openssl'
+    'wget'
+  )
+
+  for formula in ${formulas[@]}
+  do
+    if ! $(brew list $formula >/dev/null 2>&1); then
+      missing_formulas+=("$formula")
+    fi
+  done
+
+  if [[ "$missing_formulas" ]]; then
+    local formula_list=$( printf "%s " "${missing_formulas[@]}" )
+    brew install $formula_list > /dev/null &
+    spinner "${STATUS_COLOR}Installing brew formulas...${RESET}"
+  fi
+
+  # Remove outdated versions from the Cellar
+  brew cleanup > /dev/null 2>&1
+
+}

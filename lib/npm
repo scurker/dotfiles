@@ -1,0 +1,26 @@
+#!/bin/bash
+
+run_npm() {
+
+  if type_exists 'npm'; then
+
+    # List of npm packages
+    local -a packages_list=(
+      'bower'
+      'grunt-cli'
+      'gulp'
+      'nodemon'
+    )
+    local packages=$( printf "%s " "${packages_list[@]}" )
+
+    # Install global packages
+    npm install $packages --global --silent 2>&1 /dev/null
+    printf "${STATUS_COLOR}Installing npm packages... ${CHECKMARK}${RESET}\n"
+
+  else
+    printf "\n"
+    echo "Error: npm not found"
+    exit
+  fi
+
+}
