@@ -1,0 +1,9 @@
+#!/bin/bash
+
+b64encode() {
+  printf "$1" | base64 | pbcopy | printf "base64 encoded string copied to clipboard.\n"
+}
+
+b64decode() {
+  printf "$1" | base64 --decode && printf "\n"
+}
