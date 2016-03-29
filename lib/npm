@@ -6,9 +6,10 @@ run_npm() {
 
     # List of npm packages
     local -a packages_list=(
-      'bower'
+      'babel-cli'
       'grunt-cli'
       'gulp'
+      'http-server'
       'nodemon'
     )
     local packages=$( printf "%s " "${packages_list[@]}" )
