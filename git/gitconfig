@@ -31,6 +31,9 @@
   # Clean remote branches that have already been merged
   clean-branches = "!git branch --merged | grep -v '\\*' | grep -v master | xargs -n 1 git branch -d"
 
+  # Alias for setting upstream
+  set-upstream = "!f() { git branch --set-upstream-to=origin/$1 $1; }; f"
+
 [color "status"]
 
   added = green
@@ -40,7 +43,9 @@
 [push]
 
   default = current
+
 [filter "lfs"]
+
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
