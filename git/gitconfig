@@ -13,8 +13,8 @@
   undo-commit = reset --soft HEAD^
 
   # View abbreviated SHA, description, and committer - highlighting the ticket number and branch
-  ls = "!git log --pretty=format:'%C(yellow)%h%Creset %s %C(cyan)(%cr)%Creset %Cgreen<%cn>%Creset' | GREP_COLOR='0;35' egrep -i --color=always '((\\w+/)?(acct|ops|cc|mx)-[0-9]+)|$' | less -R"
-  last = "!git log --pretty=format:'%C(yellow)%h%Creset %s %C(cyan)(%cr)%Creset %Cgreen<%cn>%Creset' -1 | GREP_COLOR='0;35' egrep -i --color=always '((\\w+/)?(acct|ops|cc|mx)-[0-9]+)|$'"
+  ls = "!f() { git log --pretty=format:'%C(yellow)%h%Creset %s %C(cyan)(%cr)%Creset %Cgreen<%cn>%Creset' --author=$1 | GREP_COLOR='0;35' egrep -i --color=always '((\\w+/)?(acct|ops|cc|mx)-[0-9]+)|$' | less -R; }; f"
+  last = "!f() { git log --pretty=format:'%C(yellow)%h%Creset %s %C(cyan)(%cr)%Creset %Cgreen<%cn>%Creset' -1 --author=$1 | GREP_COLOR='0;35' egrep -i --color=always '((\\w+/)?(acct|ops|cc|mx)-[0-9]+)|$'; }; f"
 
   # Clean all files
   ca = clean -d -f
