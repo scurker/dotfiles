@@ -1,0 +1,24 @@
+#!/bin/bash
+
+load_files() {
+
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
+
+  # Placeholder for other potential completion files
+  # declare -a files=(
+  #   ""
+  # )
+
+  # for file in ${files[@]}
+  # do
+  #   if [[ -r $file ]]; then
+  #     source $file
+  #   fi
+  # done
+
+}
+
+load_files
+unset load_files

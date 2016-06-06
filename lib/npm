@@ -7,9 +7,13 @@ run_npm() {
     # List of npm packages
     local -a packages_list=(
       'babel-cli'
+      'devtool'
+      'eslint'
       'grunt-cli'
       'gulp'
       'http-server'
+      'jshint'
+      'n'
       'nodemon'
     )
     local packages=$( printf "%s " "${packages_list[@]}" )

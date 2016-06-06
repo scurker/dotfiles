@@ -1,5 +1,7 @@
 # scurker's dotfiles
 
+Welcome to my command line:
+
 ![Preview](http://i.imgur.com/yA1VeAV.gif)
 
 # Install

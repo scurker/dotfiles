@@ -1,16 +1,15 @@
 #!/bin/bash
 
-DOTFILES_DIR="$HOME/.dotfiles"
-
 load_dotfiles() {
 
   declare -a files=(
-    "${DOTFILES_DIR}/shell/colors"
-    "${DOTFILES_DIR}/shell/exports"
-    "${DOTFILES_DIR}/shell/paths"
-    "${DOTFILES_DIR}/shell/aliases"
-    "${DOTFILES_DIR}/shell/prompt"
-    "${DOTFILES_DIR}/shell/functions/*"
+    "./shell/colors"
+    "./shell/exports"
+    "./shell/paths"
+    "./shell/aliases"
+    "./shell/completion"
+    "./shell/prompt"
+    "./shell/functions/*"
     # Allow for a local .bash_profile to set machine specific settings
     "${HOME}/.bash_profile.local"
   )
