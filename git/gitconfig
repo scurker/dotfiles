@@ -34,6 +34,15 @@
   # Alias for setting upstream
   set-upstream = "!f() { git branch --set-upstream-to=origin/$1 $1; }; f"
 
+  # Fixup into the most recent commit
+  fixup = "!f() { git commit --fixup $(git rev-parse HEAD); }; f"
+
+  # Squash into the most recent commit
+  squash = "!f() { git commit --squash $(git rev-parse HEAD); }; f"
+
+  # Autosquash
+  autosquash = "!f() { git rebase --interactive --autosquash $1; }; f"
+
 [color "status"]
 
   added = green
