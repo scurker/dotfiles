@@ -1,0 +1,12 @@
+#!/bin/bash
+
+code() {
+  local code='open -n -a "Visual Studio Code"'
+  if [ -z $@ ]; then
+    eval "$code" # If no arguments are passed in, just open code
+  else
+    local path="$1"
+    [[ path = /* ]] || path="$PWD/${path#./}"
+    eval "$code --args $path"
+  fi
+}
