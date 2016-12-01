@@ -1,0 +1,10 @@
+#!/bin/bash
+
+MACOS=$(test "`uname`" == "Darwin" && echo "x")
+
+if [[ MACOS ]]; then
+
+  # Execute other osx-files
+  find . -name "macos-*" -exec '{}' \;
+
+fi
