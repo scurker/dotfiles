@@ -19,7 +19,7 @@ run_npm() {
     local packages=$( printf "%s " "${packages_list[@]}" )
 
     # Install global packages
-    npm install $packages --global --silent 2>&1 /dev/null
+    npm install $packages --global --silent
     printf "${STATUS_COLOR}Installing npm packages... ${CHECKMARK}${RESET}\n"
 
   else
