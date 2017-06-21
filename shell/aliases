@@ -17,3 +17,7 @@ alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | printf 'Public key copied to clip
 
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+# Alias Chrome
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
