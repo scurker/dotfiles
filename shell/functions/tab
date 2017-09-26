@@ -1,0 +1,24 @@
+#!/bin/bash
+
+function tab() {
+  [ `uname -s` != "Darwin" ] && return
+
+  local cddir="$1"
+  local cmd="$2"
+
+  if [ $# -eq 0 ]; then
+    echo "No directory specified."
+  else
+    printf "Opening $cddir...\n"
+
+    osascript &>/dev/null <<EOF
+      tell application "System Events"
+        tell process "Terminal" to keystroke "t" using command down
+      end
+      tell application "Terminal"
+        activate
+        do script with command "cd \"$cddir\"; $cmd" in window 1
+      end tell
+EOF
+  fi
+}
