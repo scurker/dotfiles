@@ -19,6 +19,7 @@ run_brew() {
     'git'
     'node'
     'openssl'
+    'pick'
     'wget'
   )
 
