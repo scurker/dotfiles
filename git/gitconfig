@@ -35,7 +35,7 @@
   clean-branches = "!git branch --merged | grep -v '\\*' | grep -v master | xargs -n 1 git branch -d"
 
   # Show list of branches
-  branches = "!f() { git checkout $(git for-each-ref --sort='-authordate:iso8601' --format=' %(authordate:relative)%09%(refname:short)' refs/heads | pick | cut -f2); }; f"
+  branches = "!f() { git checkout $(git for-each-ref --sort='-authordate:iso8601' --format=' %(if)%(HEAD)%(then)%(color:green)*%(color:reset)%(else) %(end) %(authordate:relative)%09%(color:yellow)%(refname:short)' refs/heads | pick | cut -f2); }; f"
 
   # Alias for setting upstream
   set-upstream = "!f() { git branch --set-upstream-to=origin/$1 $1; }; f"
