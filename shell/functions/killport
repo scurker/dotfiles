@@ -1,0 +1,13 @@
+#!/bin/bash
+
+killport() {
+  local port=$1
+  local pid=$(lsof -n -iTCP:$port -sTCP:LISTEN | grep 'LISTEN' | awk '{print $2}')
+  if [ -z "$pid" ]; then
+    echo "Could not find process using port $port."
+  else
+    command=$(ps -o command "$pid" | sed -n '2p')
+    echo "killing $pid (command: $command)"
+    kill $pid
+  fi
+}
