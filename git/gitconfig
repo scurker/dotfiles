@@ -34,6 +34,9 @@
   # Clean remote branches that have already been merged
   clean-branches = "!git branch --color=never --merged | grep -v '\\*' | grep -v master | xargs -n 1 git branch -d"
 
+  # Checkout remote pull requests for local testing
+  checkout-pr = "!f() { git fetch origin pull/$1/head:pr/$1; }; f"
+
   # Show list of branches
   branches = "!f() { git checkout $(git for-each-ref --sort='-authordate:iso8601' --format=' %(if)%(HEAD)%(then)%(color:green)*%(color:reset)%(else) %(end) %(authordate:relative)%09%(color:yellow)%(refname:short)' refs/heads | pick | cut -f2); }; f"
 
