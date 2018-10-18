@@ -14,7 +14,9 @@ run_brew() {
   local -a missing_formulas
   local -a formulas=(
     'ack'
+    'asciinema'
     'bash-completion'
+    'curl'
     'ffmpeg'
     'git'
     'node'
