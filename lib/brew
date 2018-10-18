@@ -3,6 +3,7 @@
 run_brew() {
 
   # Install Homebrew
+  # - Need to do a check for Linuxbrew: https://raw.githubusercontent.com/Linuxbrew/install/master/install)
   if ! type_exists 'brew'; then
     printf "${STATUS_COLOR}Installing homebrew... ${CHECKMARK}${RESET}\n"
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
