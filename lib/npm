@@ -8,6 +8,7 @@ run_npm() {
     local -a packages_list=(
       'babel-cli'
       'devtool'
+      'english-words-that-are-not-yet-npm-packages'
       'eslint'
       'grunt-cli'
       'gulp'
@@ -15,6 +16,8 @@ run_npm() {
       'jshint'
       'n'
       'nodemon'
+      'tslint'
+      'vue-cli'
     )
     local packages=$( printf "%s " "${packages_list[@]}" )
 
