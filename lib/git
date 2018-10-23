@@ -2,20 +2,27 @@
 
 run_git() {
 
-  # Initialize the git repo if it doesn't exist
-  if ! git rev-parse --git-dir > /dev/null 2>&1; then
-    printf "${STATUS_COLOR}Initializing git repository... ${CHECKMARK}${RESET}\n"
-    git init --quiet
-    git remote add origin ${DOTFILES_GIT}
-    git fetch origin master > /dev/null 2>&1
-    # Reset the index and the working try to the fetched HEAD
-    git reset --hard HEAD > /dev/null 2>&1
-    git clean -df
+  # Check for ssh access
+  if ssh -q git@github.com > /dev/null 2>&1; [ $? -eq 255 ]; then
+    printf "${normal}\n${yellow}Oops!${normal} It looks like you haven't set up your public SSH key with GitHub.\n"
+    printf "${gray}You won't be able to sync new changes until you have added your public SSH key to GitHub.${normal}\n\n"
+  else
+
+    # Initialize the git repo if it doesn't exist
+    if ! git rev-parse --git-dir > /dev/null 2>&1; then
+      printf "${STATUS_COLOR}Initializing git repository... ${CHECKMARK}${RESET}\n"
+      git init --quiet
+      git remote add origin ${DOTFILES_GIT}
+      git fetch origin master > /dev/null 2>&1
+      # Reset the index and try to fetch HEAD
+      git reset --hard HEAD > /dev/null 2>&1
+      git clean -df
+    fi
+
+    # Sync with the remote repo
+    printf "${STATUS_COLOR}Syncing dotfiles... ${CHECKMARK}${RESET}\n"
+    git pull --rebase origin master > /dev/null 2>&1
+    git log -1 --pretty=format:'%C(white dim)[master]%Creset %C(yellow)%h%Creset %s %C(cyan)(%cr)%Creset %Cgreen<%cn>%Creset'
+
   fi
-
-  # Sync with the remote repo
-  printf "${STATUS_COLOR}Syncing dotfiles... ${CHECKMARK}${RESET}\n"
-  git pull --rebase origin master > /dev/null 2>&1
-  git log -1 --pretty=format:'%C(white dim)[master]%Creset %C(yellow)%h%Creset %s %C(cyan)(%cr)%Creset %Cgreen<%cn>%Creset'
-
 }

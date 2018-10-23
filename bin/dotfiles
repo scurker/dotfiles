@@ -6,7 +6,7 @@ DOTFILES_DIR="${HOME}/.dotfiles"
 DOTFILES_GIT="git@github.com:scurker/dotfiles.git"
 DOTFILES_TAR="https://github.com/scurker/dotfiles/tarball/master"
 
-STATUS_COLOR=$(tput setaf 3)
+STATUS_COLOR=$(tput setaf 220)
 SUCCESS_COLOR=$(tput setaf 2)
 CHECKMARK="${SUCCESS_COLOR}✓${RESET}"
 RESET="\e[0m"
