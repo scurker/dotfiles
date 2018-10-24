@@ -11,14 +11,29 @@ function tab() {
   else
     printf "Opening $cddir...\n"
 
-    osascript &>/dev/null <<EOF
-      tell application "System Events"
-        tell process "Terminal" to keystroke "t" using command down
-      end
-      tell application "Terminal"
-        activate
-        do script with command "cd \"$cddir\"; $cmd" in window 1
-      end tell
+    if [ "Apple_Terminal" = $TERM_PROGRAM ]; then
+      osascript &>/dev/null <<EOF
+        tell application "System Events"
+          tell process "Terminal" to keystroke "t" using command down
+        end
+        tell application "Terminal"
+          activate
+          do script with command "cd \"$cddir\"; $cmd" in window 1
+        end tell
 EOF
+    elif [ "iTerm.app" = $TERM_PROGRAM ]; then
+      osascript &>/dev/null <<EOF
+        tell application "iTerm"
+          tell current window
+            create tab with default profile
+            tell the current session
+              write text "cd \"$cddir\"; $cmd"
+            end tell
+          end tell
+        end tell
+EOF
+    else
+      echo "Unknown Terminal: $TERM_PROGRAM"
+    fi
   fi
 }
