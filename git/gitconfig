@@ -50,7 +50,7 @@
   squash = "!f() { git commit --squash $(git rev-parse HEAD); }; f"
 
   # Autosquash
-  autosquash = "!f() { git rebase --interactive --autosquash $1; }; f"
+  autosquash = "!f() { git rebase --interactive --autosquash $1~1; }; f"
 
   # Show word diffs
   word-diff = "diff --word-diff"
