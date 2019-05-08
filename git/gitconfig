@@ -76,5 +76,7 @@
   required = true
 
 [color]
-
 	ui = always
+
+[core]
+	excludesfile = ~/.gitignore
