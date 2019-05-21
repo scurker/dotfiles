@@ -33,6 +33,7 @@
 
   # Clean remote branches that have already been merged
   clean-branches = "!git branch --color=never --merged | grep -v '\\*' | grep -v master | xargs -n 1 git branch -d"
+  rm-branches = "!git branch -vv | grep 'origin/.*: gone' | awk '{print $1}' | xargs -n 1 git branch -d"
 
   # Checkout remote pull requests for local testing
   checkout-pr = "!f() { git fetch origin pull/$1/head:pr/$1; }; f"
