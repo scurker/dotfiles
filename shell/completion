@@ -6,6 +6,8 @@ load_files() {
     . $(brew --prefix)/etc/bash_completion
   fi
 
+  eval "$(npm completion 2>/dev/null)"
+
   # Placeholder for other potential completion files
   # declare -a files=(
   #   ""
