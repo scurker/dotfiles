@@ -1,4 +1,5 @@
-source ./load_dotfiles;
+DOTFILES_DIR="${HOME}/.dotfiles"
+source "${HOME}/.dotfiles/shell/load_dotfiles";
 
 # Allow for a local .bash_profile to set machine specific settings
 load_local_profile() {
