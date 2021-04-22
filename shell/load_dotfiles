@@ -1,0 +1,27 @@
+#!/bin/bash
+
+load_dotfiles() {
+
+  DOTFILES_DIR="${HOME}/.dotfiles"
+
+  declare -a files=(
+    "${DOTFILES_DIR}/shell/colors"
+    "${DOTFILES_DIR}/shell/exports"
+    "${DOTFILES_DIR}/shell/paths"
+    "${DOTFILES_DIR}/shell/aliases"
+    "${DOTFILES_DIR}/shell/completion"
+    "${DOTFILES_DIR}/shell/prompt"
+    "${DOTFILES_DIR}/shell/functions/*"
+  )
+
+  for file in ${files[@]}
+  do
+    if [[ -r $file ]]; then
+      source $file
+    fi
+  done
+
+}
+
+load_dotfiles
+unset load_dotfiles

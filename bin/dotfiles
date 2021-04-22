@@ -49,6 +49,7 @@ linkfiles() {
     'shell/bashrc'
     'shell/bash_profile'
     'shell/inputrc'
+    'shell/zshrc'
     'git/gitignore'
     'git/gitconfig'
   )

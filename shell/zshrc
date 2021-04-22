@@ -1,10 +1,8 @@
-#!/bin/bash
-
 source ./load_dotfiles;
 
 # Allow for a local .bash_profile to set machine specific settings
 load_local_profile() {
-  LOCAL_PROFILE="${HOME}/.bash_profile.local"
+  LOCAL_PROFILE="${HOME}/.zshrc.local"
   if [[ -r $LOCAL_PROFILE ]]; then
     source $LOCAL_PROFILE
   fi
