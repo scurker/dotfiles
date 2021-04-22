@@ -80,7 +80,7 @@
   required = true
 
 [color]
-	ui = always
+  ui = always
 
-[core]
-	excludesfile = ~/.gitignore
+  [core]
+  excludesfile = ~/.gitignore

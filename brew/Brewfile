@@ -2,8 +2,8 @@ tap "homebrew/core"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-tap "homebrew/services"
 tap "homebrew/cask-versions"
+tap "homebrew/services"
 
 # Command line tools
 brew "ack"
@@ -13,14 +13,12 @@ brew "bash-completion"
 brew "curl"
 brew "ffmpeg"
 brew "git"
-brew "mas"
 brew "node", link: false
 brew "openssl"
 brew "pick"
 brew "wget"
 
 # Applications
-cask "alfred"
 cask "docker"
 cask "dropbox"
 cask "firefox"

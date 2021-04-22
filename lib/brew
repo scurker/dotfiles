@@ -12,7 +12,13 @@ run_brew() {
     spinner "${STATUS_COLOR}Updating brew...${RESET}"
   fi
 
+  printf "${STATUS_COLOR}Installing brewfile... ${CHECKMARK}${RESET}\n"
   brew bundle install --file ./brew/Brewfile
+
+  if [[ "$(uname)" == "Darwin" ]]; then
+    printf "${STATUS_COLOR}Installing macos brewfile... ${CHECKMARK}${RESET}\n"
+    brew bundle install --file ./brew/Brewfile-macos
+  fi
 
   # Remove outdated versions from the Cellar
   brew cleanup > /dev/null 2>&1
