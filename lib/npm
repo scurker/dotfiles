@@ -10,14 +10,9 @@ run_npm() {
       'devtool'
       'english-words-that-are-not-yet-npm-packages'
       'eslint'
-      'grunt-cli'
-      'gulp'
       'http-server'
-      'jshint'
       'n'
-      'nodemon'
       'tslint'
-      'vue-cli'
     )
     local packages=$( printf "%s " "${packages_list[@]}" )
 
