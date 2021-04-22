@@ -6,7 +6,6 @@ run_npm() {
 
     # List of npm packages
     local -a packages_list=(
-      'babel-cli'
       'devtool'
       'english-words-that-are-not-yet-npm-packages'
       'eslint'
