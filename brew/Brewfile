@@ -1,9 +1,8 @@
-tap "caskformula/caskformula"
+tap "homebrew/core"
 tap "homebrew/bundle"
 tap "homebrew/cask"
-tap "homebrew/core"
+tap "homebrew/cask-fonts"
 tap "homebrew/services"
-tap "homebrew/versions"
 tap "homebrew/cask-versions"
 
 # Command line tools
@@ -14,6 +13,7 @@ brew "bash-completion"
 brew "curl"
 brew "ffmpeg"
 brew "git"
+brew "mas"
 brew "node", link: false
 brew "openssl"
 brew "pick"
