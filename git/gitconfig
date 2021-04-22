@@ -41,6 +41,9 @@
   # Show list of branches
   branches = "!f() { git checkout $(git for-each-ref --sort='-authordate:iso8601' --format=' %(if)%(HEAD)%(then)%(color:green)*%(color:reset)%(else) %(end) %(authordate:relative)%09%(color:yellow)%(refname:short)' refs/heads | pick | cut -f2); }; f"
 
+  # Interactive delete branches
+  branches-delete = "!f() { git branch -D $(git for-each-ref --sort='-authordate:iso8601' --format=' %(if)%(HEAD)%(then)%(color:green)*%(color:reset)%(else) %(end) %(authordate:relative)%09%(color:yellow)%(refname:short)' refs/heads | pick | cut -f2); }; f"
+
   # Alias for setting upstream
   set-upstream = "!f() { git branch --set-upstream-to=origin/$1 $1; }; f"
 
