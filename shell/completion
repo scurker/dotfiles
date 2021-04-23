@@ -2,8 +2,8 @@
 
 load_files() {
 
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
+  if [[ -r $(brew --prefix)/etc/profile.d/bash_completion.sh ]]; then
+    source $(brew --prefix)/etc/profile.d/bash_completion.sh
   fi
 
   eval "$(npm completion 2>/dev/null)"
