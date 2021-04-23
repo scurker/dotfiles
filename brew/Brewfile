@@ -13,7 +13,7 @@ brew "bash-completion"
 brew "curl"
 brew "ffmpeg"
 brew "git"
-brew "node", link: false
+brew "node"
 brew "openssl"
 brew "pick"
 brew "wget"
