@@ -5,22 +5,34 @@
 
 git_branch() {
   local branchName=$(git symbolic-ref --quiet --short HEAD 2> /dev/null)
-  if [ "$branchName" ]; then
-    printf " [%s]" "$branchName"
+  if [[ -n "$branchName" ]]; then
+    printf " ($branchName)"
   else
     return
   fi
 }
 
-# Show hostname when connected over SSH
-if [ -n "$SSH_TTY" ]; then
-  host="@\h"
+if [[ -n "$ZSH_VERSION" ]]; then
+  setopt prompt_subst
+  PS1='${blue}%n' # user
+  PS1+='${cyan}${host}${reset}'
+  PS1+='${white}:%.${normal}' # working directory
+  PS1+='${green}${bold}$(git_branch)${reset}${normal}' # git branch
+  PS1+='${reset} $ ' # reset
+  # Show hostname when connected over SSH
+  if [[ -n "$SSH_TTY" ]]; then
+    host='@%m'
+  fi
+elif [[ -n "$BASH_VERSION" ]]; then
+  PS1="\[${blue}\]\u" # user
+  PS1+="\[${cyan}\]${host}\[${normal}\]"
+  PS1+="\[${white}\]:\W\[${normal}\]" # working directory
+  PS1+="\[${green}${bold}\]\$(git_branch)\[${reset}${normal}\]" # git branch
+  PS1+="\[${reset}\] $ " # reset
+  # Show hostname when connected over SSH
+  if [[ -n "$SSH_TTY" ]]; then
+    host="@\h"
+  fi
 fi
-
-PS1="\[${blue}\]\u" # user
-PS1+="\[${cyan}\]${host}\[${normal}\]"
-PS1+="\[${white}\]:\W\[${normal}\]" # working directory
-PS1+="\[${green}${bold}\]\$(git_branch)\[${reset}${normal}\]" # git branch
-PS1+="\[${reset}\] $ " # reset
 
 export PS1
