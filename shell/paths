@@ -10,10 +10,9 @@ declare -a dirs=(
 )
 
 # Append directories to path
-for index in ${!dirs[*]}
-do
-  if [ -d ${dirs[$index]} ]; then
-    PATH="$PATH:${dirs[$index]}"
+for dir in "${dirs[@]}"; do
+  if [[ -d $dir ]]; then
+    PATH="$PATH:${dir}"
   fi
 done
 
