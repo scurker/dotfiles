@@ -13,6 +13,7 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
 # Set dark theme for Yosimite
 sudo defaults write /Library/Preferences/.GlobalPreferences AppleInterfaceTheme Dark
+defaults write "Apple Global Domain" "AppleInterfaceStyle" "Dark"
 
 # Automatically quit printer app once the print jobs complete
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
