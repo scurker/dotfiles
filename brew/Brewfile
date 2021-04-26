@@ -17,6 +17,7 @@ brew "node"
 brew "openssl"
 brew "pick"
 brew "wget"
+brew "zsh-completions"
 
 # Applications
 cask "docker"
