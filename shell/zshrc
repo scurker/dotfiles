@@ -3,6 +3,11 @@
 DOTFILES_DIR="${HOME}/.dotfiles"
 source "${HOME}/.dotfiles/shell/load_dotfiles";
 
+setopt auto_cd              # if not a command and is a directory, auto cd into it
+setopt correct              # try to correct the spellings of commands
+setopt share_history        # share history with all sessions
+setopt hist_ignore_dups     # ignore if the previous command is a duplicate
+
 # Allow for a local .bash_profile to set machine specific settings
 load_local_profile() {
   LOCAL_PROFILE="${HOME}/.zshrc.local"
