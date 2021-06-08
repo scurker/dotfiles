@@ -9,8 +9,8 @@ setopt share_history        # share history with all sessions
 setopt hist_ignore_dups     # ignore if the previous command is a duplicate
 
 # Intelligent up/down history
-bindkey '^[[A' up-line-or-search
-bindkey '^[[B' down-line-or-search
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
 
 # Allow for a local .bash_profile to set machine specific settings
 load_local_profile() {
