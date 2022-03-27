@@ -14,3 +14,6 @@ defaults write com.apple.dock autohide-delay -float 0
 
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
+
+# Prevent Dock from showing recently opened items
+defaults write com.apple.dock show-recents -bool false
