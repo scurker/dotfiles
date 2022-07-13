@@ -71,6 +71,7 @@
 [push]
 
   default = current
+  autoSetupRemote = true
 
 [filter "lfs"]
 
@@ -80,7 +81,13 @@
   required = true
 
 [color]
+
   ui = always
 
   [core]
+
   excludesfile = ~/.gitignore
+
+[init]
+
+  defaultBranch = main
