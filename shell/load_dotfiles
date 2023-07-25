@@ -18,8 +18,7 @@ load_dotfiles() {
   do
     if [[ -r $file ]]; then
       source $file
-    fi
-    if [[ -d $file ]]; then
+    elif [[ -d $file ]]; then
       dir_files=($file/*)
       for f in ${dir_files[@]}; do
         source $f
