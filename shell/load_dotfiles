@@ -11,13 +11,19 @@ load_dotfiles() {
     "${DOTFILES_DIR}/shell/aliases"
     "${DOTFILES_DIR}/shell/completion"
     "${DOTFILES_DIR}/shell/prompt"
-    "${DOTFILES_DIR}/shell/functions/*"
+    "${DOTFILES_DIR}/shell/functions"
   )
 
   for file in ${files[@]}
   do
     if [[ -r $file ]]; then
       source $file
+    fi
+    if [[ -d $file ]]; then
+      dir_files=($file/*)
+      for f in ${dir_files[@]}; do
+        source $f
+      done
     fi
   done
 
