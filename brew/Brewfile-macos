@@ -7,4 +7,3 @@ cask "macdown"
 
 # MacOS applications
 mas "Magnet", id: 441258766
-mas "Tweetbot", id: 557168941
