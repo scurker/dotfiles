@@ -16,13 +16,13 @@ load_dotfiles() {
 
   for file in ${files[@]}
   do
-    if [[ -r $file ]]; then
-      source $file
-    elif [[ -d $file ]]; then
+    if [[ -d $file ]]; then
       dir_files=($file/*)
       for f in ${dir_files[@]}; do
         source $f
       done
+    elif [[ -r $file ]]; then
+      source $file
     fi
   done
 
