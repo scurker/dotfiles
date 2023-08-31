@@ -16,6 +16,9 @@
   ls = "!f() { git log --pretty=format:'%C(yellow)%h%Creset %s %C(cyan)(%cr)%Creset %Cgreen<%cn>%Creset' --author=$1 | GREP_COLOR='0;35' egrep -i --color=always '((\\w+/)?(cam)-[0-9]+)|$' | less -R; }; f"
   last = "!f() { git log --pretty=format:'%C(yellow)%h%Creset %s %C(cyan)(%cr)%Creset %Cgreen<%cn>%Creset' -1 --author=$1 | GREP_COLOR='0;35' egrep -i --color=always '((\\w+/)?(cam)-[0-9]+)|$'; }; f"
 
+  # View the most recent tag
+  last-tag = "!f() { git describe --tags --abbrev=0 $1; }; f"
+
   # Changelog since hash/tag
   changelog = "!f() { git log --pretty=format:'%C(yellow)%h%Creset %s %C(cyan)(%cr)%Creset %Cgreen<%cn>%Creset' --no-merges $1...; }; f"
 
