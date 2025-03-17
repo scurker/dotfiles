@@ -33,11 +33,11 @@ source ${DOTFILES_DIR}/lib/brew
 source ${DOTFILES_DIR}/lib/git
 source ${DOTFILES_DIR}/lib/npm
 
-# Install Homebrew
-run_brew
-
 # Initialize or sync git repo
 run_git
+
+# Install Homebrew
+run_brew
 
 # Install npm packages
 run_npm
