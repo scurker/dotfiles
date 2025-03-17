@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Disable local Time Machine snapshots
-sudo tmutil disablelocal
+# Note: this no longer works
+# sudo tmutil disablelocal
 
 # Disable hibernation (speeds up entering sleep mode)
 sudo pmset -a hibernatemode 0
