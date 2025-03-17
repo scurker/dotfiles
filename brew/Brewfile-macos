@@ -7,3 +7,4 @@ cask "macdown"
 
 # MacOS applications
 mas "Magnet", id: 441258766
+mas "Steam Link", id: 1246969117
