@@ -87,7 +87,7 @@
 
   ui = always
 
-  [core]
+[core]
 
   excludesfile = ~/.gitignore
 
