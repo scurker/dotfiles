@@ -2,7 +2,6 @@
 brew "mas"
 
 # Applications
-cask "alfred"
 cask "macdown"
 
 # MacOS applications
