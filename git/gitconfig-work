@@ -1,0 +1,8 @@
+[user]
+
+  name = Jason
+  email = jason.wilson@zocdoc.com
+
+[core]
+
+  sshCommand = ssh -i ~/.ssh/id_ed25519_work -o IdentitiesOnly=yes

@@ -7,6 +7,10 @@
   name = Jason
   email = jason@scurker.com
 
+[includeIf "gitdir:~/projects/work/"]
+
+  path = gitconfig-work
+
 [alias]
 
   # Undo the previous commit
