@@ -9,7 +9,7 @@
 
 [includeIf "gitdir:~/projects/work/"]
 
-  path = gitconfig-work
+  path = ~/.dotfiles/git/gitconfig-work
 
 [alias]
 
